@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{{ title }}</title>
+  <style>
+    :root{
+    --bg:#fff;
+    --card:#f7f7f8;
+    --text:#111827;
+    --muted:#6b7280
+    }
+    *{box-sizing:border-box}
+    body{
+    margin:0;
+    color:var(--text);
+    background:var(--bg)
+    }
+    .container
+    {
+        max-width:1100px;
+        margin:24px auto 80px;
+        padding:0 20px
+    }
+    h1{
+        font-size:28px;
+        margin:8px 0 20px
+    } 
+    h2{
+        font-size:18px;
+        margin:28px 0 12px
+    }
+    .grid
+    {
+        display:grid;
+        grid-template-columns:repeat(3,1fr);
+        gap:12px
+    }
+    .card
+    {
+        background:var(--card);
+        border-radius:12px;
+        padding:14px;
+        box-shadow:inset 0 1px 0 rgba(0,0,0,.05)
+    }
+    .card h3
+    {
+        margin:4px 0 8px;
+        font-size:15px
+    }
+    .badge
+    {
+        color:var(--muted);
+        font-size:12px
+    }
+    .code
+    {
+        background:#0f172a;
+        color:#e5e7eb;
+        padding:4px 6px;
+        border-radius:6px
+    }
+    ul{
+        margin:6px 0 0 0;
+        padding-left:18px
+    } 
+    p{
+        line-height:1.6
+    }
+    img.wire
+    {
+        width:100%;
+        border-radius:12px;
+        border:1px dashed #cbd5e1;
+        background:#fff
+    }
+    @media (max-width:900px){.grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>환전 도우미</h1>
+    <div class="badge">접속: http://127.0.0.1:5000/hw1 • 개인 프로젝트</div>
+
+    <h2>1) Problem Statement Canvas</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>고객</h3>
+        <ul>
+          <li>해외결제·해외주식 사용자</li>
+          <li>여행 전 환전을 준비하는 20~40대 직장인 및 대학생</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>컨텍스트</h3>
+        <ul>
+          <li>실시간 환율 변동으로 인한 최적의 환전 타이밍 예측의 어려움</li>
+          <li>수수료, 우대율 등 복잡한 조건으로 인한 의사결정의 어려움</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>근본 문제</h3>
+        <ul>
+          <li>환율의 미래 예측에 대한 정보 부족</li>
+          <li>의사결정의 어려움으로 인해 최적의 환전 타이밍을 놓치는 문제</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>감정적 영향</h3>
+        <ul>
+          <li>환율 변동으로 인한 불안과 스트레스</li>
+          <li>손해봤다는 불안·스트레스</li>
+          <li>초조, 결정 피로 누적</li>
+
+        </ul>
+      </div>
+      <div class="card">
+        <h3>정량적 영향</h3>
+        <ul>
+          <li>수수료 추가 지출</li>
+          <li>여행 예산 초과 및 비교/의사결정 시간 낭비</li>
+          <li>불필요한 환전 비용 지출</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>대안</h3>
+        <ul>
+          <li>각 앱/웹에서 수동 비교</li>
+          <li>포털 환율 페이지 단가 확인</li>
+          <li>시세/알림만 제공</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>대안의 단점</h3>
+        <ul>
+          <li>단순 정보 제공에 그쳐 미래 예측 불가</li>
+          <li>맞춤형 알림 부족으로 인한 타이밍 상실</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2>2) 솔루션 (3줄)</h2>
+    <div class="card">
+       <p>Line 1: 실시간 환율 데이터와 과거 이력을 기반으로 미래 환율 변동 확률을 예측 및 제공</p>
+       <p>Line 2: 사용자가 설정한 목표 금액에 도달하면 알림을 제공하고 의사결정에 도움이 될 만한 데이터 기반 가이드 제공</p>
+       <p>Line 3: 환율 변동 히스토리를 시각화하고 주요 경제 이슈를 함께 제공하여 변동의 원인에 대한 이해 증진</p>
+    </div>
+
+    <h2>3) 기능 명세</h2>
+    <div class="card">
+      <ul>
+        <li><b>목표 환율 알림</b>: 설정한 목표 환율 도달 시 푸시 알림</li>
+        <li><b>미래 환율 예측</b>: "향후 1주일 내 환율 하락 가능성 70%"와 같이 확률적 예측 제공</li>
+        <li><b>환율 변동 히스토리</b>: 일/주/월/년 단위로 환율 변동 차트 시각화 및 최고가/최저가/평균가 제공</li>
+        <li><b>환율 변동성 분석</b>: 전일 대비, 전주 대비 변동 폭과 함께 주요 관련 뉴스 제공</li>
+        <li><b>즐겨찾기 통화 관리</b>: 자주 확인하는 통화를 메인 화면에서 바로 확인 가능</li>
+        <li><b>실효환율 계산</b>: 기준환율 × (1 + 마진) + 고정수수료/금액</li>
+      </ul>
+    </div>
+    
+    <h2>4) 간단한 UX 흐름</h2>
+    <div class="card">
+      <ul>
+        <li>온보딩: 관심 통화/목표 환율 등록</li>
+        <li>메인 화면: 현재 환율/실효환율 확인, 즐겨찾기</li>
+        <li>통화 상세: 히스토리/예측/뉴스</li>
+        <li>알림 설정: 목표 환율 도달 시 예측 정보와 함께 알림 수신</li>
+      </ul>
+    </div>
+
+    <h2>5) 와이어프레임 (스케치)</h2>
+    <img class="wire" src="{{ url_for('static', filename='WF.jpg') }}" alt="wireframe sketch" />
+  </div>
+</body>
+</html>

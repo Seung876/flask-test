@@ -10,5 +10,9 @@ def index():
 def home():
     return render_template("home.html", title="Flask 템플릿 연결")
 
+@app.get("/hw1")
+def hw1():
+    return render_template("hw1.html", title="환전 도우미")
+
 if __name__ == "__main__":
     app.run()
